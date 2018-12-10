@@ -6,10 +6,13 @@ stdenv.mkDerivation {
         nodejs-10_x yarn git python27
     ];
     shellHook = ''
-	alias yarn="yarn --ignore-engines"
+	alias yarn="yarn --registry http://localhost:8081/repository/npm-proxy --ignore-engines"
+	alias yarn-remote="yarn --ignore-engines"
+	alias registry-proxy="npm config set registry http://localhost:8081/repository/npm-proxy && yarn config set registry http://localhost:8081/repository/npm-proxy"
+	alias registry-remote="npm config set registry https://registry.npmjs.org && yarn config set registry https://registry.yarnpkg.com"
         export PATH="$PWD/node_modules/.bin/:$PATH"
 	npm config set cache-min 9999999
-	npm config set registry http://localhost:8081/repository/npm-proxy
-	yarn config set registry http://localhost:8081/repository/npm-proxy
+	echo "Command yarn by default uses local Nexus proxy ~ use yarn-remote to use remote registry"
+	registry-remote
     '';
 }
