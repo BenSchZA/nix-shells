@@ -4,5 +4,18 @@ let
 in
 with nixpkgs; stdenv.mkDerivation {
 	name = "moz_overlay_shell";
-	buildInputs = [ nixpkgs.latest.rustChannels.nightly.rust ];
+	buildInputs = [ 
+		nixpkgs.latest.rustChannels.nightly.rust 
+		#rustup
+		#cargo 
+	];
+	shellHook = ''
+		alias help="
+			echo 'cargo new _'
+			echo 'cargo build'
+			echo 'cargo check'
+			echo 'cargo run'
+			echo 'cargo build --release'
+		";
+	'';
 }

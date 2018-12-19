@@ -4,12 +4,7 @@ stdenv.mkDerivation {
 	name = "node";
   buildInputs = [
 		nodejs-10_x
-		nodePackages_10_x.node-gyp
 		yarn
-		git
-		python27
-		pkgconfig
-		libpng.dev
   ];
   shellHook = ''
 		alias yarn="yarn --registry http://localhost:8081/repository/npm-proxy --ignore-engines"

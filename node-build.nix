@@ -1,9 +1,20 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation {
-	name = "dapptools";
+	name = "node-build";
 	buildInputs = [
-		nodejs-10_x pkgconfig autoconf automake libtool nasm autogen zlib
+		nodejs-10_x
+		yarn 
+		pkgconfig 
+		autoconf 
+		automake 
+		libtool 
+		nasm 
+		autogen 
+		zlib
+		nodePackages_10_x.node-gyp 
+  		nodePackages_10_x.node-gyp-build 
+  		nodePackages_10_x.node-pre-gyp
 	];
 	shellHook = ''
 	'';
