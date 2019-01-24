@@ -5,8 +5,9 @@ in
 with nixpkgs; stdenv.mkDerivation {
 	name = "moz_overlay_shell";
 	buildInputs = [ 
-		nixpkgs.latest.rustChannels.nightly.rust 
-		#rustup
+		#nixpkgs.latest.rustChannels.nightly.rust 
+		nixpkgs.latest.rustChannels.stable.rust
+                #rustup
 		#cargo 
 	];
 	shellHook = ''

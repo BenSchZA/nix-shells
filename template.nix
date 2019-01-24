@@ -1,14 +1,8 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation {
-	name = "dapptools";
+	name = "";
 	buildInputs = [
-		dnsutils 
-		nmap 
-		bettercap 
-		wireshark
-		radare2
-		radare2-cutter
 	];
 	shellHook = ''
 	'';

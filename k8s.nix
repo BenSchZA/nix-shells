@@ -4,7 +4,12 @@ stdenv.mkDerivation {
 	name = "k8s";
 	buildInputs = [
 		kubectl
+                awscli
 		aws-iam-authenticator
+		kubernetes-helm
+		minikube libvirt qemu
+		kubectx
+		heptio-ark
 	];
 	shellHook = ''
 		kubectl proxy &

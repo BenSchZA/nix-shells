@@ -1,14 +1,9 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation {
-	name = "dapptools";
+	name = "go";
 	buildInputs = [
-		dnsutils 
-		nmap 
-		bettercap 
-		wireshark
-		radare2
-		radare2-cutter
+		libcap go gcc
 	];
 	shellHook = ''
 	'';
