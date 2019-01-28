@@ -13,6 +13,6 @@ stdenv.mkDerivation {
 	];
 	shellHook = ''
 		kubectl proxy &
-		xdg-open http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+		alias dashboard="xdg-open http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/"
 	'';
 }
