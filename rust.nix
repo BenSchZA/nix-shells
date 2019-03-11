@@ -7,6 +7,7 @@ with nixpkgs; stdenv.mkDerivation {
     buildInputs = [ 
         #nixpkgs.latest.rustChannels.nightly.rust 
         nixpkgs.latest.rustChannels.stable.rust
+        rustfmt
         #rustup
         #cargo 
     ];
