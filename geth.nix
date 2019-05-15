@@ -11,8 +11,8 @@ stdenv.mkDerivation {
             echo 'Parity config: ~/.local/share/io.parity.ethereum/'
             echo 'Geth config: ~/.ethereum/geth/'
         ";
-        #export NIX_PATH=nixpkgs=$HOME/.dapp/dapptools:$NIX_PATH
-        #nix-env -f $HOME/.dapp/dapptools -iA dapp seth solc hevm ethsign
+        export NIX_PATH=nixpkgs=$HOME/.dapp/dapptools:$NIX_PATH
+        nix-env -f $HOME/.dapp/dapptools -iA dapp seth solc hevm ethsign
         alias attach="geth --rinkeby --rpcapi db,eth,net,web3,personal attach"
         alias attach-parity="geth --rpcapi db,eth,net,web3,personal attach"
         alias node="geth --rinkeby --syncmode "light" --cache=1024 console"
