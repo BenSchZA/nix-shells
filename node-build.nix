@@ -7,8 +7,10 @@ stdenv.mkDerivation {
 		yarn 
 		pkgconfig 
 		autoconf 
-		automake 
-		libtool 
+		automake
+                libudev 
+		libtool
+                libusb 
 		nasm 
 		autogen 
 		zlib

@@ -19,6 +19,10 @@ with nixpkgs; stdenv.mkDerivation {
             echo 'cargo run'
             echo 'cargo build --release'
         ";
+        alias setup="
+          rustup install stable
+          rustup default stable
+        ";
         cd $HOME/workspace/Rust;
     '';
 }
