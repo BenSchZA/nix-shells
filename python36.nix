@@ -6,6 +6,7 @@ stdenv.mkDerivation {
             python36
             python36Packages.pip
             python36Packages.setuptools
+            python36Packages.virtualenvwrapper
 	];
 	shellHook = ''
 	'';
