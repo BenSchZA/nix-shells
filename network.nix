@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation {
-	name = "dapptools";
+	name = "network";
 	buildInputs = [
 		dnsutils 
 		nmap 
@@ -9,6 +9,8 @@ stdenv.mkDerivation {
 		wireshark
 		radare2
 		radare2-cutter
+                urlwatch
+                tcpflow
 	];
 	shellHook = ''
 	'';
