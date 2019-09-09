@@ -1,5 +1,5 @@
 { ghc }:
-with (import <nixpkgs> {});
+with (import <nixpkgs> { });
 
 haskell.lib.buildStackProject {
   inherit ghc;

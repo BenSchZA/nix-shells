@@ -1,11 +1,7 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation {
-	name = "aws";
-	buildInputs = [
-                awscli
-		aws-iam-authenticator
-	];
-	shellHook = ''
-	'';
+  name = "aws";
+  buildInputs = [ awscli aws-iam-authenticator ];
+  shellHook = "";
 }

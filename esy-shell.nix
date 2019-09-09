@@ -1,9 +1,10 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> { } }:
 
 (pkgs.buildFHSUserEnv {
   name = "esy-env";
-  targetPkgs = pkgs: (with pkgs;
-    [ gnum4
+  targetPkgs = pkgs:
+    (with pkgs; [
+      gnum4
       perl # for shasum
       binutils
       gcc
@@ -14,10 +15,10 @@
       neovim
       which
       patch
-      ]);
+    ]);
   profile = ''
-   export NPM_CONFIG_PREFIX=./vendor/node_modules
-   export PATH=$PWD/vendor/node_modules/bin:$PATH
+    export NPM_CONFIG_PREFIX=./vendor/node_modules
+    export PATH=$PWD/vendor/node_modules/bin:$PATH
   '';
 }).env
 

@@ -1,4 +1,5 @@
-let pkgs = import <nixpkgs> {};
+let
+  pkgs = import <nixpkgs> { };
   #nanomsg-py = .... build expression for this python library;
 in pkgs.stdenv.mkShell {
   buildInputs = [

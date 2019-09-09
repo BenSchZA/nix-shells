@@ -1,10 +1,7 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation {
-	name = "dapptools";
-	buildInputs = [
-		dapp seth hevm ethsign solc
-	];
-	shellHook = ''
-	'';
+  name = "dapptools";
+  buildInputs = [ dapp seth hevm ethsign solc ];
+  shellHook = "";
 }

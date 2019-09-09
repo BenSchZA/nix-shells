@@ -1,11 +1,7 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation {
   name = "python";
-  buildInputs = [
-    qt5.full
-    qtcreator
-  ];
-  shellHook = ''
-  '';
+  buildInputs = [ qt5.full qtcreator ];
+  shellHook = "";
 }

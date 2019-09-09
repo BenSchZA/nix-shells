@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
-(python35.withPackages (ps: [ps.saws])).env
+(python35.withPackages (ps: [ ps.saws ])).env
 

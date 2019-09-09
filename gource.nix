@@ -1,12 +1,8 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation {
   name = "dev";
-  buildInputs = [
-    gource
-    libav
-    ffmpeg
-  ];
+  buildInputs = [ gource libav ffmpeg ];
   shellHook = ''
     gource \
       -s .06 \

@@ -6,9 +6,8 @@
 #$ cargo-web deploy --target=wasm32-unknown-unknown
 
 with import <nixpkgs> {
-  overlays = map (uri: import (fetchTarball uri)) [
-    https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz
-  ];
+  overlays = map (uri: import (fetchTarball uri))
+    [ "https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz" ];
 };
 
 stdenv.mkDerivation {
@@ -16,7 +15,7 @@ stdenv.mkDerivation {
   buildInputs = [
     cargo-web
     (latest.rustChannels.nightly.rust.override {
-      targets = ["wasm32-unknown-unknown"];
+      targets = [ "wasm32-unknown-unknown" ];
     })
   ];
 }

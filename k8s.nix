@@ -1,18 +1,20 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation {
-	name = "k8s";
-	buildInputs = [
-		kubectl
-                awscli
-		aws-iam-authenticator
-		kubernetes-helm
-		minikube libvirt qemu
-		kubectx
-		heptio-ark
-	];
-	shellHook = ''
-		kubectl proxy &
-		alias dashboard="xdg-open http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/"
-	'';
+  name = "k8s";
+  buildInputs = [
+    kubectl
+    awscli
+    aws-iam-authenticator
+    kubernetes-helm
+    minikube
+    libvirt
+    qemu
+    kubectx
+    heptio-ark
+  ];
+  shellHook = ''
+    kubectl proxy &
+    alias dashboard="xdg-open http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/"
+  '';
 }

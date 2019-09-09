@@ -1,10 +1,7 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation {
-	name = "docker";
-	buildInputs = [
-		docker-compose
-	];
-	shellHook = ''
-	'';
+  name = "docker";
+  buildInputs = [ docker-compose ];
+  shellHook = "";
 }
