@@ -8,5 +8,7 @@ stdenv.mkDerivation {
     python37Packages.setuptools
     python37Packages.virtualenvwrapper
   ];
-  shellHook = "";
+  shellHook = "
+    export SOURCE_DATE_EPOCH=315532800
+  ";
 }
