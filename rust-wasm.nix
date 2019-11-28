@@ -17,5 +17,7 @@ stdenv.mkDerivation {
     (latest.rustChannels.nightly.rust.override {
       targets = [ "wasm32-unknown-unknown" ];
     })
+    wasm-pack
+    wabt
   ];
 }
