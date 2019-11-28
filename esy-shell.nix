@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> { } }:
+{ pkgs ? import <nixpkgs> {} }:
 
 (pkgs.buildFHSUserEnv {
   name = "esy-env";
@@ -17,10 +17,11 @@
       neovim
       which
       patch
+      fontconfig.dev
+      fontconfig.lib
+      harfbuzz
     ]);
-  profile = ''
-    export NPM_CONFIG_PREFIX=./vendor/node_modules
-    export PATH=$PWD/vendor/node_modules/bin:$PATH
-  '';
+  runScript = "bash";
 }).env
+
 
