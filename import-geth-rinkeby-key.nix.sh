@@ -13,18 +13,19 @@ cat <<EOF > $temp_password
 $PASSWORD
 EOF
 
-#{
-#address=$(geth account import --datadir $HOME/.ethereum/rinkeby --password $temp_password $temp_keyfile)
-#echo address
-#} || {
-#address=$PUBLIC_KEY
-#echo "Address already exists"
-#}
+{
+  echo "Importing account"
+  #address=$(geth account import --datadir $HOME/.ethereum/rinkeby --password $temp_password $temp_keyfile)
+  #echo address
+} || {
+  address=$PUBLIC_KEY
+  echo "Address already exists"
+}
 
 address=$PUBLIC_KEY
 
-#rm $temp_keyfile
+rm $temp_keyfile
 
 geth --rinkeby --syncmode "light" --cache=1024 console --rpc --rpcaddr 'localhost' --rpcport 8545 --rpcapi 'personal,db,eth,net,web3,txpool,miner' --password $temp_password --unlock $address
 
-#rm $temp_password
+rm $temp_password

@@ -4,6 +4,8 @@
   name = "esy-env";
   targetPkgs = pkgs:
     (with pkgs; [
+      ocamlPackages.fontconfig
+      fontconfig
       gnum4
       perl # for shasum
       binutils
