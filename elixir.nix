@@ -5,13 +5,11 @@ with pkgs;
 let
   inherit (lib) optional optionals;
 
-  elixir = beam.packages.erlangR21.elixir_1_7;
-  nodejs = nodejs-10_x;
-  postgresql = postgresql_10;
+  elixir = beam.packages.erlangR22.elixir_1_9;
 in
 
 mkShell {
-  buildInputs = [ elixir nodejs yarn git postgresql ]
+  buildInputs = [ elixir ]
     ++ optional stdenv.isLinux inotify-tools # For file_system on Linux.
     ++ optionals stdenv.isDarwin (with darwin.apple_sdk.frameworks; [
       # For file_system on macOS.
@@ -19,12 +17,13 @@ mkShell {
       CoreServices
     ]);
 
-    # Put the PostgreSQL databases in the project diretory.
     shellHook = ''
-      export PGDATA="$PWD/db"
-      mix local.hex
-      mix archive.install hex phx_new 1.4.10
-      mix ecto.create
-      mix phx.server
+      help () {
+      	echo "mix new _ --module _"
+      	echo "mix compile"
+	echo "mix test"
+      	echo "mix format --check-formatted"
+	echo "iex -S mix"
+      }
     '';
 }
