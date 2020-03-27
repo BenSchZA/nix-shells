@@ -14,6 +14,8 @@ let
     rev = "ffe7a577cc80f37381dc289c820842d346002364";
     sha256 = "19yn6nx6r627f5zbyc7ckgr96d6b45sgwx95n2gp2imqwqvpj8wc";
   };
+
+  fwup = pkgs.callPackage ./derivations/fwup/default.nix { };
 in
 
 mkShell {
@@ -55,6 +57,7 @@ mkShell {
     help() {
       echo 'Setup new environment: > setup'
       echo '> mix nerves.new hello_nerves'
+      echo '> MIX_TARGET=bbb mix deps.get && mix firmware'
     }
   '';
 }
