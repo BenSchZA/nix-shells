@@ -2,6 +2,10 @@ with import <nixpkgs> { };
 
 stdenv.mkDerivation {
   name = "go";
-  buildInputs = [ libcap go gcc ];
+  buildInputs = [
+    go_1_13
+    gcc
+    git
+  ];
   shellHook = "";
 }
