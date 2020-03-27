@@ -5,8 +5,6 @@ with pkgs;
 let
   inherit (lib) optional optionals;
 
-  # elixir = beam.packages.erlangR22.elixir_1_9;
-
   erlang_wx = erlangR22.override {
     wxSupport = true;
   };
@@ -19,7 +17,22 @@ let
 in
 
 mkShell {
-  buildInputs = [ erlang_wx elixir ]
+  buildInputs = [
+    erlang_wx 
+    elixir
+
+    automake
+    autoconf
+    git
+    squashfsTools
+    ncurses5.dev
+    bc
+    m4
+    unzip
+    cmake
+    python38
+    fwup
+  ]
     ++ optionals stdenv.isLinux [ inotify-tools wxGTK ] # For file_system on Linux.
     ++ optionals stdenv.isDarwin (with darwin.apple_sdk.frameworks; [
       # For file_system on macOS.
@@ -28,10 +41,20 @@ mkShell {
       wxmac
     ]);
 
-    shellHook = ''
-      help () {
-        echo 'See https://elixir-lang.org/getting-started/mix-otp/introduction-to-mix.html'
-        echo 'Create new module: mix new example_project --module ExampleModule'
-      }
-    '';
+  # This hook is needed on Linux to make Nerves use the correct ssh_askpass.
+  shellHooks = optional stdenv.isLinux ''
+    export SUDO_ASKPASS=${x11_ssh_askpass}/libexec/x11-ssh-askpass
+
+    setup() {
+      mix local.hex
+      mix local.rebar
+      mix archive.install hex nerves_bootstrap
+    }
+
+    echo 'Try `help` for options'
+    help() {
+      echo 'Setup new environment: > setup'
+      echo '> mix nerves.new hello_nerves'
+    }
+  '';
 }
