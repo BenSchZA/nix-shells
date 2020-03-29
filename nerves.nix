@@ -23,6 +23,7 @@ mkShell {
     erlang_wx 
     elixir
 
+    pkg-config
     automake
     autoconf
     git

@@ -32,6 +32,10 @@ mkShell {
       help () {
         echo 'See https://elixir-lang.org/getting-started/mix-otp/introduction-to-mix.html'
         echo 'Create new module: mix new example_project --module ExampleModule'
+        echo 'mix compile'
+        echo 'mix test'
+        echo 'mix format --check-formatted'
+        echo 'iex -S mix'
       }
     '';
 }
