@@ -20,6 +20,8 @@
       fontconfig.dev
       fontconfig.lib
       harfbuzz
+      ragel
+      bzip2
     ]);
   runScript = "bash";
 }).env
